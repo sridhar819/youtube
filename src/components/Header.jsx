@@ -3,7 +3,9 @@ import { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Context from '../Context'
 import { useState } from 'react';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 import { Navbar, MenuCard } from './HeaderStyle';
 
@@ -68,7 +70,25 @@ const Header = () => {
                     <input onClick={changeTheme} type="checkbox" />
                     <span className="slider"></span>
                 </label>
-                <button onClick={onLogout} className='btn btn-primary text-light' type="button">Logout</button>
+                <Popup
+                    trigger={<button className='btn btn-primary text-light' type="button">Logout</button>}
+                    modal
+                    closeOnDocumentClick
+                >
+                    {close => {
+                        return (
+                            <div style={{ borderRadius: "10px" }} className='p-5'>
+                                <p className='text-danger text-center'>Are you want to logout !!!</p>
+                                <div className="d-flex justify-content-center gap-2">
+                                    <button onClick={close} className='btn btn-dark' type="button">Close</button>
+                                    <button className='btn btn-danger' onClick={onLogout} type="button">Confirm</button>
+                                </div>
+                            </div>
+                        )
+
+                    }}
+                </Popup>
+
             </div>
         </Navbar>
 

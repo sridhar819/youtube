@@ -81,7 +81,7 @@ export const SearchCard = styled.div`
       align-items: center;
       background-color: transparent;
       width: 40%;
-      max-width: 250px;
+      max-width: 350px;
       border-radius: 4px;
       color: ${props => props.isDark ? "#fff" : "#222"};
       border: 1px solid gray;

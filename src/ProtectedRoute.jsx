@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import Header from './components/Header';
 
 
 const ProtectedRoute = (props) => {
@@ -9,7 +10,10 @@ const ProtectedRoute = (props) => {
         return <Navigate to='/login' replace />;
     }
 
-    return props.children;
+    return (<>
+        <Header />
+        <Outlet />
+    </>);
 }
 
 export default ProtectedRoute

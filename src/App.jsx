@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Login from './components/Login'
-import Home from './components/Home'
-import ProtectedRoute from './ProtectedRoute'
-import Context from './Context'
-import { useState } from 'react'
-import Trending from './components/Trending'
-import Gaming from './components/Gaming'
-import Layout from './components/Layout'
-import VideoDetails from './components/VideoDetails'
-import SavedVideos from './components/SavedVideos'
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Login from './components/Login';
+import Home from './components/Home';
+import ProtectedRoute from './ProtectedRoute';
+import Context from './Context';
+import { useState } from 'react';
+import Trending from './components/Trending';
+import Gaming from './components/Gaming';
+import VideoDetails from './components/VideoDetails';
+import SavedVideos from './components/SavedVideos';
 
 const getSavedVideosFromStorage = () => {
   const data = localStorage.getItem('savedVideos');
@@ -50,7 +49,7 @@ const App = () => {
     <Context.Provider value={{ isDark, savedVideos, addVideos, changeTheme }}>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
+        <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/gaming" element={<Gaming />} />

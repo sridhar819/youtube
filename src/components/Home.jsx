@@ -100,7 +100,7 @@ const Home = () => {
 
             <Card isDark={isDark}>
                 <SearchCard isDark={isDark}>
-                    <input onKeyDown={handleClick} onChange={handleChange} value={searchInput} type="search" />
+                    <input onKeyDown={handleClick} onChange={handleChange} value={searchInput} type="search" placeholder='search here' />
                     <button onClick={() => {
                         setVideoData({ activeStage: videoStages.initial });
                         getFetchedData();
